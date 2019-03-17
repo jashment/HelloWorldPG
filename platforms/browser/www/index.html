@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-mobile/jquery-1.11.1.js"></script>
+    <script src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <title>Phonegap App</title>
+</head>
+
+<body>
+    <section id="firstPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+        	<h1>Homepage</h1>
+        	<a href="#secondPage" class="ui-btn-right  ui-shadow" data-role="button">Page 2</a>
+        </header>
+
+            <div class="app">
+                <h1>PhoneGap</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Wubba Lubba Dub Dub!</p>
+                </div>
+                <div id="div1">
+                        <h1 id="h1tag" class="event listening">Hello World!</h1>
+                        <h2 id="h2tag">Empty</h2>
+                        <h2 id="h2tag2">Empty</h2>
+                        <h3 id="h3tag">Empty</h3>
+                        
+                </div>
+            </div>
+
+        <footer data-role="footer" data-position="fixed">
+        	<h1>Footer Bar</h1>
+        </footer>
+    </section>
+
+    <section id="secondPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Forms</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#thirdPage" class="ui-btn-right  ui-shadow" data-role="button">Page 3</a>
+        </header>
+
+            <form style="padding: 10px;">
+                 <label for="text-6">Text input:</label>
+                 <input type="text" name="text-6" id="text-6" value="" placeholder="Placeholder">
+                 <label for="text-7">Your Name</label>
+                 <input type="text" data-clear-btn="true" name="text-7" id="text-7" value="" placeholder="Your Name" style="padding-right: 10px;">
+                 <label for="search-5">Your Address</label>
+                 <input type="search" name="search-5" id="search-5" value="" placeholder="Address">
+            </form>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="thirdPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Buttons</h1>
+            <a href="#secondPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#fourthPage" class="ui-btn-right  ui-shadow" data-role="button">Page 4</a>
+        </header>
+
+ 
+    <div class="ui-content">
+
+         <p>This is a link styled as a button:</p>
+         <a href="#" class="ui-btn">Link Button</a>
+         <a href="#" class="ui-btn ui-mini">Link Button</a>
+
+         <p>This is a &lt;button&gt; element:</p>
+         <button id="btn1" class="ui-btn" disabled="disabled">button element</button>
+         <button id="btn2" class="ui-btn ui-mini">button element mini</button>
+
+         <p>&lt;input&gt; elements:</p>
+         <input type="button" value="Button" />
+
+         <p>100% Horizontal vs. Inline buttons:</p>
+         <a href="#" class="ui-btn">Button 1</a>
+         <a href="#" class="ui-btn ui-shadow">Button 2</a>
+         <a href="#" class="ui-btn ui-btn-inline">Button 3</a>
+         <a href="#" class="ui-btn ui-btn-inline" >Button 4</a>
+
+         <p>These buttons are part of a control group:</p>
+         <div data-role="controlgroup" data-type="horizontal">
+           <button class="ui-btn">button a</button>
+           <button class="ui-btn">button b</button>
+           <button class="ui-btn">button c</button>
+         </div>
+
+         <a href="#" class="ui-btn ui-icon-arrow-u ui-btn-icon-top">Up</a>
+         <a href="#" class="ui-btn ui-icon-arrow-d ui-btn-icon-bottom">Down</a>
+         <a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Left</a>
+         <a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-right">Right</a>
+         <a href="#" class="ui-btn ui-icon-delete ui-corner-all ui-btn-icon-notext">Delete</a>
+
+    </div>
+
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="fourthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Text Inputs</h1>
+            <a href="#thirdPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#fifthPage" class="ui-btn-right  ui-shadow" data-role="button">Page 5</a>
+        </header>
+
+        <div class="ui-content">
+
+          <form method="get" action="">
+            <fieldset class="ui-field-contain">
+              <label for="address">Your Address:</label>
+              <input type="text" name="address" id="address" value="" placeholder="Your Address"/>
+              <label for="age">Your Age:</label>
+              <input type="number" name="age" id="age" value="" placeholder="Your Age"/>
+              <label for="email">Your email: </label>
+              <input type="email" name="email" id="email" value="" placeholder="Your Email"/>
+              <label for="birthdate">Your birthdate: </label>
+              <input type="date" name="birthdate" id="birthdate" value="" placeholder="Your Birthdate"/>
+            </fieldset>
+            <div class="ui-field-contain">
+              <label for="search">Search the site:</label>
+              <input type="search" name="search" id="search" value="" placeholder="Search the site"/>
+            </div>
+            <div class="ui-field-contain">
+              <label for="details">Tell us about you!</label>
+              <textarea id="details"></textarea>
+            </div>
+          </form>
+
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="fifthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Radio Buttons/Checkboxes</h1>
+            <a href="#fifthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#sixthPage" class="ui-btn-right  ui-shadow" data-role="button">Page 6</a>
+        </header>
+
+      <div class="ui-content">
+          <form method="get" action="">
+            <fieldset data-role="controlgroup">
+              <legend>Select an option:</legend>
+              <label for="rb1">Radio Button 1</label>
+              <input type="radio" name="rb" id="rb1" value="rb1"/>
+              <label for="rb2">Radio Button 2</label>
+              <input type="radio" name="rb" id="rb2" value="rb2" checked="checked"/>
+              <label for="rb3">Radio Button 3</label>
+              <input type="radio" name="rb" id="rb3" value="rb3"/>
+              <label for="rb4">Radio Button 4</label>
+              <input type="radio" name="rb" id="rb4" value="rb4"/>
+            </fieldset>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+              <legend>Select an option:</legend>
+              <label for="rb5">Option 1</label>
+              <input type="radio" name="rbtn" id="rb5" value="rb5" checked="checked"/>
+              <label for="rb6">Option 2</label>
+              <input type="radio" name="rbtn" id="rb6" value="rb6"/>
+              <label for="rb7">Option 3</label>
+              <input type="radio" name="rbtn" id="rb7" value="rb7"/>
+            </fieldset>
+            <fieldset data-role="controlgroup">
+              <legend>Agree to the terms:</legend>
+              <label for="cb1">I agree</label>
+              <input type="checkbox" name="cb1" id="cb1" />
+            </fieldset>
+            <fieldset data-role="controlgroup">
+              <legend>Choose Programming Fuel:</legend>
+              <label for="pf1">Red Bull</label>
+              <input type="checkbox" name="pf1" id="pf1" />
+              <label for="pf2">Mountain Dew</label>
+              <input type="checkbox" name="pf2" id="pf2" />
+              <label for="pf3">Dr. Pepper</label>
+              <input type="checkbox" name="pf3" id="pf3" />
+            </fieldset>
+          </form>
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+        <section id="sixthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Sliders/Flipswitches </h1>
+            <a href="#sixthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#seventhPage" class="ui-btn-right  ui-shadow" data-role="button">Page 7</a>
+        </header>
+
+        <div class="ui-content">
+
+          <form method="get" action="">
+            <fieldset class="ui-field-contain">
+              <legend>Numerical Slider Example</legend>
+              <label for="num">Enter a Number</label>
+              <input type="range" name="num" id="num" value="25" min="0" max="100" />
+            </fieldset>
+          </form>
+          <form method="get" action="">
+            <fieldset class="ui-field-contain">
+              <label for="ts1">Flipswitch:</label>
+              <select name="ts1" id="ts1" data-role="flipswitch">
+                <option value="No" selected="selected">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </fieldset>
+            <fieldset class="ui-field-contain">
+              <label for="ts2">Flipswitch:</label>
+              <input name="ts2" type="checkbox" checked="checked" data-role="flipswitch" />
+            </fieldset>
+          </form>
+
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="seventhPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Select Lists</h1>
+            <a href="#sixthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#eigthPage" class="ui-btn-right  ui-shadow" data-role="button">Page 8</a>
+        </header>
+
+<div class="ui-content">
+
+          <form method="get" action="">
+            <fieldset class="ui-field-contain">
+              <label for="select1">Basic Select Menu:</label>
+              <select name="select1" id="select1">
+                <option value="value1">Value 1</option>
+                <option value="value2" disabled="disabled">Value 2</option>
+                <option value="value3">Value 3</option>
+                <option value="value4">Value 4</option>
+              </select>
+            </fieldset>
+          </form>
+
+          <form method="get" action="">
+            <fieldset class="ui-field-contain">
+            <label for="select1">Custom Select Menu:</label>
+            <select name="select1" id="select1" data-native-menu="false">
+              <option>Choose One:</option>
+              <optgroup label="First Group">
+                <option value="value1">Value 1</option>
+                <option value="value2" disabled="disabled">Value 2</option>
+                <option value="value3">Value 3</option>
+                <option value="value4">Value 4</option>
+              </optgroup>
+              <optgroup label="Second Group">
+                <option value="value5">Value 5</option>
+                <option value="value6">Value 6</option>
+                <option value="value7">Value 7</option>
+                <option value="value8">Value 8</option>
+              </optgroup>
+            </select>
+          </fieldset>
+
+          <fieldset class="ui-field-contain">
+          <label for="select1">Multiple Enabled:</label>
+            <select name="select1" id="select2" multiple="multiple" data-native-menu="false">
+              <option>Select Options:</option>
+              <option value="value1">Value 1</option>
+              <option value="value2">Value 2</option>
+              <option value="value3">Value 3</option>
+              <option value="value4">Value 4</option>
+              <option value="value5">Value 5</option>
+              <option value="value6">Value 6</option>
+            </select>
+          </fieldset>
+          </form>
+
+          <form method="get" action="">
+            <div class="ui-field-contain">
+              <fieldset data-role="controlgroup" data-type="vertical">
+              <legend>Expiration Date:</legend>
+      
+              <label for="month">Select Month</label>
+              <select name="month" id="month">
+                <option value="Jan">January</option>
+                <option value="Feb">February</option>
+                <option value="Mar">March</option>
+                <option value="Apr">April</option>
+                <option value="May">May</option>
+                <option value="Jun">June</option>
+                <option value="Jul">July</option>
+                <option value="Aug">August</option>
+                <option value="Sep">September</option>
+                <option value="Oct">October</option>
+                <option value="Nov">November</option>
+                <option value="Dec">December</option>
+              </select>
+      
+              <label for="year">Select Year</label>
+              <select name="year" id="year">
+                <option value="2017">2019</option>
+                <option value="2017">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+              </select>
+            </fieldset>
+            </div>
+          </form>
+
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="eigthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Lists</h1>
+            <a href="#seventhPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+<!--             <a href="#ninthPage" class="ui-btn-right  ui-shadow" data-role="button">Page 9</a> -->
+        </header>
+
+        <div class="ui-content">
+          
+          <h2>Ordered List Example</h2>
+          <ol data-role="listview">
+                <li><a href="#ninthPage">Count Bubbles</a></li>
+                <li><a href="#tenthPage">Icons</a></li>
+                <li><a href="#eleventhPage">Advanced List Views</a></li>
+                <li><a href="#twelthPage">Rich Content Lists</a></li>
+            </ol>
+            <h2>Unordered List Example</h2>
+            <ul data-role="listview">
+                <li><a href="#ninthPage">Count Bubbles</a></li>
+                <li><a href="#tenthPage">Icons</a></li>
+                <li><a href="#eleventhPage">Advanced List Views</a></li>
+                <li><a href="#twelthPage">Rich Content Lists</a></li>
+            </ul>
+
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="ninthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Count Bubbles</h1>
+            <a href="#eigthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+        </header>
+
+        <div class="ui-content">
+          <h2>Ordered List Example</h2>
+            <ol data-role="listview">
+                <li><a href="#">List Item 1 <span class="ui-li-count">20</span></a></li>
+                <li><a href="#">List Item 2 <span class="ui-li-count">7</span></a></li>
+                <li><a href="#">List Item 3 <span class="ui-li-count">45</span></a></li>
+                <li><a href="#">List Item 4 <span class="ui-li-count">2</span></a></li>
+                <li><a href="#">List Item 5 </a></li>
+                <li><a href="#">List Item 6 <span class="ui-li-count">10</span></a></li>
+            </ol>
+            <h2>Unordered List Example</h2>
+            <ul data-role="listview">
+                <li><a href="#">List Item 1 <span class="ui-li-count">20</span></a></li>
+                <li><a href="#">List Item 2 <span class="ui-li-count">7</span></a></li>
+                <li><a href="#">List Item 3 <span class="ui-li-count">45</span></a></li>
+                <li><a href="#">List Item 4 <span class="ui-li-count">2</span></a></li>
+                <li><a href="#">List Item 5 </a></li>
+                <li><a href="#">List Item 6 <span class="ui-li-count">10</span></a></li>
+            </ul>
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="tenthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Forms</h1>
+            <a href="#eigthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+        </header>
+
+        <div class="ui-content">
+          <h2>Ordered List Example</h2>
+            <ol data-role="listview">
+                <li><a href="#"><img src='img/us.png' class='ui-li-icon'/>United States</a></li>
+                <li><a href="#"><img src='img/gb.png' class='ui-li-icon'/>Great Britain</a></li>
+                <li><a href="#"><img src='img/de.png' class='ui-li-icon'/>Germany</a></li>
+                <li><a href="#"><img src='img/gf.png' class='ui-li-icon'/>France</a></li>
+            </ol>
+            <h2>Unordered List Example</h2>
+            <ul data-role="listview">
+                <li><a href="#"><img src='img/us.png' class='ui-li-icon'/>United States</a></li>
+                <li><a href="#"><img src='img/gb.png' class='ui-li-icon'/>Great Britain</a></li>
+                <li><a href="#"><img src='img/de.png' class='ui-li-icon'/>Germany</a></li>
+                <li><a href="#"><img src='img/gf.png' class='ui-li-icon'/>France</a></li>
+            </ul>
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <section id="eleventhPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Forms</h1>
+            <a href="#eigthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            
+        </header>
+
+        <div class="ui-content">
+          <ul data-role="listview" data-divider-theme="b">
+            <li data-role="list-divider">America</li>
+              <li>California</li>
+                <li>
+                    <a href="#winedetails">Wine #1</a>
+                    <a href="#winenotes">Wine Notes</a>
+                </li>
+                <li>
+                    <a href="#winedetails">Wine #2</a>
+                    <a href="#winenotes">Wine Notes</a>
+                </li>
+                <li>
+                    <a href="#winedetails">Wine #3</a>
+                    <a href="#winenotes">Wine Notes</a>
+                </li>
+              <li>Washington</li>
+              <li>Oregon</li>
+            <li data-role="list-divider">France</li>
+              <li>Burgundy</li>
+              <li>Bordeaux</li>
+              <li>Languedoc</li>
+            <li data-role="list-divider">Italy</li>
+              <li>Tuscany</li>
+              <li>Sicily</li>
+              <li>Lombardia</li>
+          </ul>
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+     <section id="winedetails" data-role="page">
+        <header data-role="header">
+            <h1>Wine Details</h1>
+            <a href="#eleventhPage" class="ui-btn ui-btn-left">Back</a>
+        </header>
+        <div class="ui-content">
+        <p>This page contains information about the wine.</p>
+        </div>
+    </section>
+    <section id="winenotes" data-role="page">
+        <header data-role="header">
+            <h1>Wine Tasting Notes</h1>
+            <a href="#eleventhPage" class="ui-btn ui-btn-left">Back</a>
+        </header>
+        <div class="ui-content">
+        <p>This page is where you enter your own tasting notes.</p>
+        </div>
+    </section>
+
+    <section id="twelthPage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>Forms</h1>
+            <a href="#ninthPage" class="ui-btn-left  ui-shadow" data-role="button">Back</a>
+            <a href="#eleventhPage" class="ui-btn-right  ui-shadow" data-role="button">Page 11</a>
+        </header>
+
+        <div class="ui-content">
+          
+          <h2>Ordered List Example</h2>
+          <ol data-role="listview">
+                <li><a href="#page9">Count Bubbles</a></li>
+                <li><a href="#page10">Icons</a></li>
+                <li><a href="#page11">Advanced List Views</a></li>
+                <li><a href="#page12">Rich Content Lists</a></li>
+            </ol>
+            <h2>Unordered List Example</h2>
+            <ul data-role="listview">
+                <li><a href="#page9">Count Bubbles</a></li>
+                <li><a href="#page10">Icons</a></li>
+                <li><a href="#page11">Advanced List Views</a></li>
+                <li><a href="#page12">Rich Content Lists</a></li>
+            </ul>
+
+        </div>
+
+        <footer data-role="footer" data-position="fixed">
+            <h1>Footer Bar</h1>
+            <a href="#firstPage" class="ui-btn-left  ui-shadow" data-role="button">Home</a>
+        </footer>
+    </section>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
